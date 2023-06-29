@@ -1,0 +1,118 @@
+body {
+  font-family: "ROBOTO", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav,
+.slider {
+  position: relative;
+  z-index: 1;
+  background: #1e1f26;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0 2em;
+}
+.nav_,
+.slider {
+  position: relative;
+  z-index: -1;
+  /*background: #1e1f26;*/
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  padding: 0 2em;
+}
+h1 {
+  font-size: 5vw;
+  margin: 0;
+  padding-bottom: 0.5rem;
+  letter-spacing: 0.4rem;
+  color: #03dac6;
+  transition: all 0.3s ease;
+}
+
+h1:hover {
+  transform: translate3d(0, -10px, 22px);
+  color: #ff0266;
+}
+
+h3 {
+  font-size: 1.5vw;
+  letter-spacing: 0.2rem;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300;
+  color: #faebd7;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  z-index: 10;
+}
+.nav-container:after {
+  position: fixed-top;
+}
+
+.nav-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  color: #03dac6;
+  letter-spacing: 0.1rem;
+  transition: all 0.5s ease;
+  font-size: 0.8rem;
+}
+.nav-tab:hover {
+  color: #ff0266;
+  transition: all 0.5s ease;
+}
+
+.nav-tab-slider {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 6px;
+  background: #03dac6;
+  transition: left 0.3s ease;
+}
+
+@media (min-width: 800px) {
+  .nav-tab {
+    font-size: 2vw;
+
+    h1 {
+      font-size: 3vw;
+    }
+    h3 {
+      font-size: 2vw;
+    }
+  }
+}
+.background {
+  position: absolute; <canvas class="background"></canvas>
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+.color{color:#3399CC; text-decoration:none;font-weight:bold;text-align: center;}
+.color:visited{color:#3399CC; text-decoration:none;font-weight:bold;}/*访问过的链接设置*/
+.color:hover{color:#CF0000; text-decoration:underline;font-weight:bold;  }/*鼠标放上的链接设置*/

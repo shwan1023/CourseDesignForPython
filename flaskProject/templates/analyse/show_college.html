@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8">
+<title>2021年计算机学院科创竞赛情况一览</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="sara mazal lessons">
+<meta name="keywords" content="HTML, CSS, JavaScript, mazal, icons">
+
+<script src="../../static/js/dynamic_show_college/particles.min.js"></script>
+
+<link rel="stylesheet" href="../../static/css/dynamic_show_college/normalize.min.css">
+<link rel="stylesheet" href="../../static/css/dynamic_show_college/style.css">
+    <link rel="stylesheet" href="../../static/css/static/index.css">
+
+</head>
+<body>
+
+  <section class="nav">
+    <h1>2021年计算机学院科创竞赛情况一览</h1>
+
+      <h3>总体上看计算机学院2021年共获得奖项{{ college_com_num }}项，由学生作为第一作者或第一发明人的专利和论文总计{{ college_pp_num }}项，涉及学生{{ college_com_st_num }}人，占到全院人数的{{ college_com_st_num*100//2000}}%<h3>
+          <h3>共获得国家级奖项{{ college_con_num }}项，获奖最多的比赛类型是{{ college_most_com_name }}，占总获奖数的{{ college_most_com_num*100//college_com_num  }}%，获奖最多的比赛是{{ show_ctop8_name[0] }}，获得奖项{{ show_ctop8_num[0] }}占到总获奖数的{{ show_ctop8_num[0]*100//college_com_num  }}%</h3>
+      <h3>在学院科创成果分布上，{{ major_name[0] }}专业在学院竞赛成果数量位列榜首，共获奖项{{ major_num[0] }}项，占获奖总数的{{ major_num[0]*100//college_com_num}}%，
+          {{ major_name[1] }}专业获奖{{ major_num[1]}}项位居第二，占到获奖总数的{{ major_num[1]*100//college_com_num }}%，
+          {{ major_name[2] }}、{{ major_name[3] }}分别获奖{{ major_num[2] }}项、{{ major_num[3] }}项位列第三、第四名。</h3>
+      <canvas class="background"></canvas>
+          <ul>
+       <li>
+           <a href="http://127.0.0.1:5000/first" class="color" >返回首页</a>
+       </li>
+   </ul>
+
+  </section>
+
+
+<script src='../../static/js/static/jquery.min.js'></script>
+<script src="../../static/js/dynamic_show_college/script.js"></script>
+
+</body>
+</html>
+

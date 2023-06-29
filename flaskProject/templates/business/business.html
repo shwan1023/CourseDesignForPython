@@ -1,0 +1,344 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>行业发展数据系统</title>
+    <link rel="stylesheet" href="/static/css/index&business/wodry.css">
+    <link rel="stylesheet" href="/static/css/index&business/index.css">
+    <link rel="stylesheet" href="/static/css/index&business/public.css">
+
+    <script src="/static/js/index&business/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('.myscroll').myScroll({
+                speed: 60, //数值越大，速度越慢
+                rowHeight: 38 //li的高度
+            });
+        });
+
+        $(document).ready(function () {
+            var whei = $(window).width()
+            $("html").css({ fontSize: whei / 22 });
+            $(window).resize(function () {
+                var whei = $(window).width();
+                $("html").css({ fontSize: whei / 22 })
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div class="main">
+    <div class="header">
+        <div class="header-left fl" id="time"></div>
+        <div class="header-center fl">
+            <div class="header-title">
+                行业发展数据系统
+            </div>
+            <div class="header-img"></div>
+        </div>
+        <div class="header-right fl"></div>
+        <div class="header-bottom fl"></div>
+
+    </div>
+
+    <div class="center">
+        <div class="center-left fl">
+            <div class="left-top rightTop border">
+                <!--<h1 id="ceshi">数据可视化</h1>-->
+                <div class="title">全国工业发展基本信息</div>
+                <div class="top-list">
+                        <li>总流动资产合计（亿元）：729257.3</li>
+                        <li>总应收帐款（亿元）：188394.7</li>
+                    <p>
+                        <li>总产成品（亿元）：53820.6</li>
+                        <li>总资产合计（亿元）：1422415.9</li>
+                    </p>
+                        <li>总利润总额（亿元）：3404.2</li>
+                        <li>总存货（亿元）：47823.3</li>
+                </div>
+
+            </div>
+            <div class="left-cen rightTop border">
+                <div class="title">工业分大类行业增加值增长速度</div>
+
+                <ul class="company" id="ceshi">
+
+                    <li class="wodryRX0">
+                        <span>NO.1</span>
+                        金属制品、机械和设备修理业，同期增长20％</li><br/>
+                    <li class="wodryRX1">NO.2
+                        燃气生产和供应业，同期增长15丶7％</li>
+                    <br/>
+                    <li class="wodryRX2">NO.3
+                        酒、饮料和精制茶制造业，同期增长15丶4％</li>
+                    <br/>
+                    <li class="wodryRX3">NO.4
+                       有色金属矿采选业，同期增长13丶8％</li>
+                    <br/>
+                    <li class="wodryRX4">NO.5
+                        电气机械和器材制造业，同期增长13丶6％</li>
+                </ul>
+
+            </div>
+            <div class="left-bottom rightTop border">
+                <div class="title">各大类工业获利占比</div>
+                <div class="bottom-b">
+                    <div id="chart3" class="allnav"></div>
+                </div>
+
+            </div>
+        </div>
+        <div class="center-cen fl">
+            <div class="cen-top rightTop border">
+                <div class="top-title">
+                    <ul>
+                            <h1>各大城市各行业生产总值</h1>
+                    </ul>
+                </div>
+
+                <div class="top-bottom">
+                    <div id="map" class="allnav" style="height: 4.4rem"></div>
+                </div>
+
+
+            </div>
+            <div class="cen-bottom rightTop border">
+                <div class="title">热门行业近年发展情况</div>
+                <div class="bottom-b">
+                    <div id="chart4" class="allnav"></div>
+                </div>
+
+            </div>
+        </div>
+        <div class="center-right fr">
+            <div class="right-top rightTop border">
+                <div class="title">行业总收入排行</div>
+
+                <div class="echart wenzi">
+                    <div class="gun">
+                    <span>排名</span>
+                    <span>行业名称</span>
+                    <span>总收入（亿元）</span>
+                </div>
+                    <div id="FontScroll" class="myscroll">
+                        <ul>
+                            <li>
+                                <div class="fontInner clearfix">
+                                    <span>
+                                        <b>1</b>
+                                    </span>
+                                    <span>软件业务</span>
+                                    <span>94994</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fontInner clearfix">
+                                    <span>
+                                        <b>2</b>
+                                    </span>
+                                    <span>金属类批发</span>
+                                    <span>184879丶77</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fontInner clearfix">
+                                    <span>
+                                        <b>3</b>
+                                    </span>
+                                    <span>煤炭类批发</span>
+                                    <span>39925丶07</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fontInner clearfix">
+                                    <span>
+                                        <b>4</b>
+                                    </span>
+                                    <span>汽车零售</span>
+                                    <span>38182丶43</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fontInner clearfix">
+                                    <span>
+                                        <b>5</b>
+                                    </span>
+                                    <span>医疗类批发</span>
+                                    <span>33831丶03</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fontInner clearfix">
+                                    <span>
+                                        <b>6</b>
+                                    </span>
+                                    <span>建材批发</span>
+                                    <span>24552丶06</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fontInner clearfix">
+                                    <span>
+                                        <b>7</b>
+                                    </span>
+                                    <span>综合零售</span>
+                                    <span>19974丶77</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fontInner clearfix">
+                                    <span>
+                                        <b>8</b>
+                                    </span>
+                                    <span>烟草制品批发</span>
+                                    <span>17622丶15</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fontInner clearfix">
+                                    <span>
+                                        <b>9</b>
+                                    </span>
+                                    <span>快递业务</span>
+                                    <span>10332</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fontInner clearfix">
+                                    <span>
+                                        <b>10</b>
+                                    </span>
+                                    <span>超级市场</span>
+                                    <span>9899丶22</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fontInner clearfix">
+                                    <span>
+                                        <b>11</b>
+                                    </span>
+                                    <span>百货零售营业</span>
+                                    <span>9085丶85</span>
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fontInner clearfix">
+                                    <span>
+                                        <b>12</b>
+                                    </span>
+                                    <span>服装批发</span>
+                                    <span>8506丶59</span>
+
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="right-cen border">
+                <div class="title">主要行业在国内生产总值中占比</div>
+                <div class="right-cen-cent">
+                    <div id="chart2" class="allnav"></div>
+                </div>
+
+            </div>
+            <div class="right-bottom rightTop border">
+                <div class="title">全国热门行业企业数量</div>
+                <div class="chat">
+                    <div id="chart5" class="allnav"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<script src="/static/js/index&business/jquery.min.js"></script>
+<script src="https://www.jq22.com/jquery/echarts-4.2.1.min.js"></script>
+<script src="/static/js/index&business/wodry.min.js"></script>
+<script src="/static/js/index&business/fontscroll.js"></script>
+<script src="/static/js/index&business/echarts.js"></script>
+<script src="/static/js/index&business/china.js"></script>
+<!--<script src="js/mymap.js"></script>-->
+<script>
+    /*$('#ceshi').wodry({
+
+        animation: 'rotateX',
+
+        delay: 1000,
+
+        animationDuration: 800
+
+    });*/
+    /*window.onload = function () {
+        setInterval(function () {
+            var hs=document.getElementById("ceshi");
+            var hstyle=hs.style.transform;
+            if(hstyle=='rotateX(-360deg)'){
+                //console.log(1)
+                hs.style.transform='rotateX(0deg)';
+                hs.style.transform='transform 500ms cubic-bezier(0.55, 0.18, 0.92, 0.46) 0s;'
+            }else {
+                hs.style.transform='rotateX(-360deg)';
+                hs.style.transition="all 2s";
+            }
+        }, 5000);
+    };*/
+    var counter = 3000;
+    var ulist=document.getElementById("ceshi").getElementsByTagName("li");
+    for (var i=0;i<ulist.length;i++){
+        //console.log(ulist[i].className);
+        var liclass=ulist[i].className;
+        var a= $('.'+liclass+'').wodry({
+            animation: 'rotateX',
+            delay: counter,
+            animationDuration: 1000
+        });
+        if(counter>3050){
+            counter=3000;
+        }else {
+            counter +=10;
+        }
+        //console.log(counter);
+
+    }
+
+    //顶部时间
+    function getTime(){
+        var myDate = new Date();
+        var myYear = myDate.getFullYear(); //获取完整的年份(4位,1970-????)
+        var myMonth = myDate.getMonth()+1; //获取当前月份(0-11,0代表1月)
+        var myToday = myDate.getDate(); //获取当前日(1-31)
+        var myDay = myDate.getDay(); //获取当前星期X(0-6,0代表星期天)
+        var myHour = myDate.getHours(); //获取当前小时数(0-23)
+        var myMinute = myDate.getMinutes(); //获取当前分钟数(0-59)
+        var mySecond = myDate.getSeconds(); //获取当前秒数(0-59)
+        var week = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+        var nowTime;
+
+        nowTime = myYear+'-'+fillZero(myMonth)+'-'+fillZero(myToday)+'&nbsp;&nbsp;'+fillZero(myHour)+':'+fillZero(myMinute)+':'+fillZero(mySecond)+'&nbsp;&nbsp;'+week[myDay]+'&nbsp;&nbsp;';
+        //console.log(nowTime);
+        $('#time').html(nowTime);
+    };
+    function fillZero(str){
+        var realNum;
+        if(str<10){
+            realNum	= '0'+str;
+        }else{
+            realNum	= str;
+        }
+        return realNum;
+    }
+    setInterval(getTime,1000);
+
+</script>
+
+</body>
+</html>

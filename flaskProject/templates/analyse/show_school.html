@@ -1,0 +1,49 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="sara mazal lessons">
+<meta name="keywords" content="HTML, CSS, JavaScript, mazal, icons">
+
+<script src="../../static/js/dynamic_show_college/particles.min.js"></script>
+
+<link rel="stylesheet" href="../../static/css/dynamic_show_college/normalize.min.css">
+<link rel="stylesheet" href="../../static/css/dynamic_show_college/style.css">
+    <link rel="stylesheet" href="../../static/css/static/index.css">
+    <link rel="stylesheet" href="/static/css/dynamic_show_school/styles.css">
+    <title>2021年校园科创竞赛情况一览</title>
+</head>
+<body>
+
+ <canvas id="canvas1" ></canvas>
+    <section class="nav_">
+   <h1>2021年校园科创竞赛情况一览</h1>
+      <h3>总体上看全校2021年共获得奖项{{ all_num }}项，其中A类奖项共计{{ a_num }}项，占到总获奖项数的{{ a_num*1000//all_num/10 }}%，B类奖项共计{{ b_num }}项，
+          占到总获奖数的{{ b_num*1000//all_num/10 }}%，共获国家级奖项{{ all_con_num }}项，占到总获奖项的{{ all_con_num*1000//all_num/10 }}%
+          共获得一等奖{{ all_first_num}}项，占到获奖总数的{{ all_first_num*1000//all_num/10 }}%<h3>
+          <h3>获奖最多的比赛是{{ show_ctop8_name[0] }}，获得奖项{{ show_ctop8_num[0] }}占到总获奖数的{{ show_ctop8_num[0]*1000//all_num/10  }}%</h3>
+      <h3>在全校科创成果分布上，{{ college_name[0] }}学院在竞赛成果数量位列榜首，共获奖项{{ college_num[0] }}项，占获奖总数的{{ college_num[0]*1000//all_num/10 }}%，
+          {{ college_name[1] }}专业获奖{{ college_num[1] }}项位居第二，占到获奖总数的{{ college_num[1]*1000//all_num/10 }}%，
+          {{ college_name[2] }}学院、{{ college_name[3] }}学院分别获奖{{ college_num[2] }}项、{{ college_num[3] }}项位列第三、第四名。</h3>
+              <ul>
+</section>
+          <ul>
+       <li>
+           <a href="http://127.0.0.1:5000/first" class="color" id="p">返回首页</a>
+       </li>
+   </ul>
+
+
+
+
+
+<script src='../../static/js/static/jquery.min.js'></script>
+<script src="../../static/js/dynamic_show_college/script.js"></script>
+    <script src="/static/js/dynamic_show_school/particles.js"></script>
+
+</body>
+</html>

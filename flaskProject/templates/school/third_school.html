@@ -1,0 +1,757 @@
+<!doctype html>
+<html>
+<head>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+<title>竞赛数据可视化</title>
+<link type="text/css" href="../../static/css/static/public.css" rel="stylesheet">
+<link type="text/css" href="../../static/css/static/icon.css" rel="stylesheet">
+<link type="text/css" href="../../static/css/static/index.css" rel="stylesheet">
+<script type="text/javascript">
+        document.documentElement.style.fontSize = document.documentElement.clientWidth /768*100 + 'px';
+</script>
+
+<script src="../../static/js/static/echarts.min.js"></script>
+</head>
+
+
+<body>
+<div class="bg2">
+    <div class="title">学校竞赛数据可视化</div>
+    <div class="leftMain">
+    	<div class="leftMain_top">
+            <div class="div">数据导入</div>
+        	<div class="leftMain_topIn">
+            	<ul>
+                	<li>
+                        <div class="liIn">
+                            <h3>2022年MathorCup 数学建模挑战赛</h3>
+                            <p class="shu"><span class="shu1">省级 国家级 C类</span><i></i></p>
+                            <div class="zi"><span class="span1">报名截至时间:2022.4.13 </span></div>
+                            <div class="zi"><span class="span1">竞赛官网：<a href="http://www.mathorcup.org/">http://www.mathorcup.org/</a></span></div>
+{#                            <span class="border_bg_leftTop"></span>#}
+{#                            <span class="border_bg_rightTop"></span>#}
+{#                            <span class="border_bg_leftBottom"></span>#}
+                            <span class="border_bg_rightBottom"></span>
+                        </div>
+                    </li>
+                	<li>
+                        <div class="liIn">
+                            <h3>2022年全国大学生英语竞赛</h3>
+                            <p class="shu"><span class="shu2">省级 国家级 B类</span><i></i></p>
+                            <div class="zi"><span class="span1"></span><span>报名截至时间：2022.4.15</span></div>
+                            <div class="zi"><span class="span1"></span><span>竞赛官网：<a href="http://www.chinaneccs.cn/" target="_blank" class="redlink">http://www.chinaneccs.cn/</a></span></div>
+{#                            <span class="border_bg_leftTop"></span>#}
+{#                            <span class="border_bg_rightTop"></span>#}
+{#                            <span class="border_bg_leftBottom"></span>#}
+                            <span class="border_bg_rightBottom"></span>
+                        </div>
+                    </li>
+                	<li>
+                        <div class="liIn">
+                            <h3>2022年计算机设计大赛</h3>
+                            <p class="shu"><span class="shu3">省级 国家级 B类</span><i></i></p>
+                            <div class="zi"><span class="span1"></span><span>报名截至时间：2022.6.30</span></div>
+                            <div class="zi"><span class="span1"></span><span>竞赛官网：<a href="http://jsjds.ruc.edu.cn/">http://jsjds.ruc.edu.cn/</a></span></div>
+{#                            <span class="border_bg_leftTop"></span>#}
+{#                            <span class="border_bg_rightTop"></span>#}
+{#                            <span class="border_bg_leftBottom"></span>#}
+                            <span class="border_bg_rightBottom"></span>
+                        </div>
+                    </li>
+                	<li>
+                        <div class="liIn">
+                            <h3>第六届全国大学生集成电路创新创业大赛</h3>
+                            <p class="shu"><span class="shu4">省级 国家级 B类</span><i></i></p>
+                            <div class="zi"><span class="span1">报名截止时间：2022.3.31</span></div>
+                            <div class="zi"><span class="span1">竞赛官网：<a href="http://univ.ciciec.com/">http://univ.ciciec.com/</a></span></div>
+{#                            <span class="border_bg_leftTop"></span>#}
+{#                            <span class="border_bg_rightTop"></span>#}
+{#                            <span class="border_bg_leftBottom"></span>#}
+                            <span class="border_bg_rightBottom"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="leftMain_middle">
+        	<div class="leftMain_middle_left">
+            	<div class="leftMain_middle_leftIn">
+                	<h3>热门竞赛Top8</h3>
+                    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                    <div class="biaoge" style="width:100%; height:25vh" id="chartmain"></div>
+                    <script type="text/javascript">
+					//window.onload = function () {
+								//指定图表的配置项和数据
+								var dataAxis = ["{{ ctop8_name[0]}}","{{ ctop8_name[1]}}","{{ ctop8_name[2]}}","{{ ctop8_name[3]}}",
+                                                "{{ ctop8_name[4]}}","{{ ctop8_name[5]}}","{{ ctop8_name[6]}}", "{{ ctop8_name[7]}}"];
+								var data = [{{ ctop8_num[0] }}, {{ ctop8_num[1] }}, {{ ctop8_num[2] }}, {{ ctop8_num[3] }},
+                                            {{ ctop8_num[4] }},{{ ctop8_num[5] }}, {{ ctop8_num[6] }}, {{ ctop8_num[7] }}];
+								var yMax = 500;
+								var dataShadow = [];
+
+								for (var i = 0; i < data.length; i++) {
+									dataShadow.push(yMax);
+								}
+
+								option = {
+									title: {
+										text: '',
+										subtext: ''
+									},
+									grid:{
+										x:40,
+										y:40,
+										x2:20,
+										y2:20,
+
+									},
+									xAxis: {
+										data: dataAxis,
+										axisLabel: {
+											/*inside: true,*/
+											interval:0,
+											textStyle: {
+												color: '#fff',
+												fontSize: 10,
+
+											}
+										},
+										axisTick: {
+											show: false,
+										},
+										axisLine: {
+											show: true,
+											symbol:['none', 'arrow'],
+											symbolOffset: 12,
+											lineStyle:{
+												color: '#fff',
+											}
+										},
+										z: 10
+									},
+									yAxis: {
+										type: 'value',
+										name: '单位：人',
+										axisLine: {
+											show: true,
+											symbol: ['none', 'arrow'],
+											symbolOffset: 12,
+											lineStyle:{
+												color: '#fff',
+											}
+										},
+										axisTick: {
+											show: false
+										},
+										axisLabel: {
+											textStyle: {
+												color: '#fff',
+												fontSize: 12
+											}
+										}
+									},
+
+									dataZoom: [
+										{
+											type: 'inside'
+										}
+									],
+									series: [
+										{ // For shadow
+											type: 'bar',
+											itemStyle: {
+												color: 'rgba(0,0,0,0.05)'
+											},
+											barGap: '-100%',
+											barCategoryGap: '40%',
+											data: dataShadow,
+											animation: false
+										},
+										{
+											type: 'bar',
+											itemStyle: {
+												color: new echarts.graphic.LinearGradient(
+													0, 0, 0, 1,
+													[
+														{offset: 0, color: '#0efdff'},
+														{offset: 0.5, color: '#188df0'},
+														{offset: 1, color: '#188df0'}
+													]
+												)
+											},
+
+											emphasis: {
+												itemStyle: {
+													color: new echarts.graphic.LinearGradient(
+														0, 0, 0, 1,
+														[
+															{offset: 0, color: '#2378f7'},
+															{offset: 0.7, color: '#2378f7'},
+															{offset: 1, color: '#0efdff'}
+														]
+													)
+												}
+											},
+											data: data
+										}
+									]
+								};
+
+								// Enable data zoom when user click bar.
+								{#var zoomSize = 6;#}
+								{#myChart.on('click', function (params) {#}
+								{#	console.log(dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]);#}
+								{#	myChart.dispatchAction({#}
+								{#		type: 'dataZoom',#}
+								{#		startValue: dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)],#}
+								{#		endValue: dataAxis[Math.min(params.dataIndex + zoomSize / 2, data.length - 1)]#}
+								{#	});#}
+								{#});#}
+
+								//获取dom容器
+								var myChart = echarts.init(document.getElementById('chartmain'));
+								// 使用刚指定的配置项和数据显示图表。
+								myChart.setOption(option);
+						//};
+					</script>
+{#                    <span class="border_bg_leftTop"></span>#}
+{#                    <span class="border_bg_rightTop"></span>#}
+{#                    <span class="border_bg_leftBottom"></span>#}
+                    <span class="border_bg_rightBottom"></span>
+                </div>
+            </div>
+        	<div class="leftMain_middle_right">
+            	<div class="leftMain_middle_rightIn">
+                	<h3>热门竞赛一等奖获奖占比</h3>
+                    <div class="biaoge biaoge_pai" style="width:100%; height:30vh">
+                    	<div class="biaoge_paiIn">
+                        	<ul>
+                            	<li>
+                                	<div class="liIn">
+                                    	<div class="liIn_left"><span class="bot"></span><span class="zi">蓝桥杯省赛</span></div>
+                                        <div class="liIn_line"><div class="line_lineIn" style="width:{{ lq_pro_first_rate }}%;"></div></div>
+                                        <p class="num">{{ lq_pro_first_rate }}%</p>
+                                    </div>
+                                </li>
+                             	<li>
+                                	<div class="liIn liIn2">
+                                    	<div class="liIn_left"><span class="bot"></span><span class="zi">蓝桥杯国赛</span></div>
+                                        <div class="liIn_line"><div class="line_lineIn" style="width:{{ lq_con_first_rate }}%;"></div></div>
+                                        <p class="num">{{ lq_con_first_rate }}%</p>
+                                    </div>
+                                </li>
+                            	<li>
+                                	<div class="liIn liIn3">
+                                    	<div class="liIn_left"><span class="bot"></span><span class="zi">数学竞赛</span></div>
+                                        <div class="liIn_line"><div class="line_lineIn" style="width:{{ sx_con_first_rate }}%;"></div></div>
+                                        <p class="num">{{ sx_con_first_rate }}%</p>
+                                    </div>
+                                </li>
+                            	<li>
+                                	<div class="liIn liIn4">
+                                    	<div class="liIn_left"><span class="bot"></span><span class="zi">MathorCup数模</span></div>
+                                        <div class="liIn_line"><div class="line_lineIn" style="width:{{ mc_con_first_rate }}%;"></div></div>
+                                        <p class="num">{{ mc_con_first_rate }}%</p>
+                                    </div>
+                                </li>
+                            	<li>
+                                	<div class="liIn liIn5">
+                                    	<div class="liIn_left"><span class="bot"></span><span class="zi">大英竞赛</span></div>
+                                        <div class="liIn_line"><div class="line_lineIn" style="width:{{ sx_pro_first_rate }}%;"></div></div>
+                                        <p class="num">{{ sx_pro_first_rate }}%</p>
+                                    </div>
+                                </li>
+                            	<li>
+                                	<div class="liIn liIn6">
+                                    	<div class="liIn_left"><span class="bot"></span><span class="zi">省物理竞赛</span></div>
+                                        <div class="liIn_line"><div class="line_lineIn" style="width:{{ wl_pro_first_rate }}%;"></div></div>
+                                        <p class="num">{{ wl_pro_first_rate }}%</p>
+                                    </div>
+                                </li>
+                           </ul>
+                        </div>
+                    </div>
+{#                    <span class="border_bg_leftTop"></span>#}
+{#                    <span class="border_bg_rightTop"></span>#}
+{#                    <span class="border_bg_leftBottom"></span>#}
+                    <span class="border_bg_rightBottom"></span>
+                </div>
+            </div>
+        </div>
+        <div class="leftMain_middle">
+        	<div class="leftMain_middle_left">
+            	<div class="leftMain_middle_leftIn">
+                	<h3>2021年竞赛获奖情况</h3>
+                    <div class="biaoge" style="width:100%; height:25vh" id="chartmain_zhe"></div>
+                    <script type="text/javascript">
+					//window.onload = function (){
+								//指定图表的配置项和数据
+
+					option = {
+						title: {
+							text: ''
+						},
+						tooltip: {
+							trigger: 'axis'
+						},
+						legend: {
+							textStyle: {
+								color: '#fff',
+								fontSize: 12,
+							},
+							right:'5%',
+							data: ['获得奖项数', 'A类竞赛获奖数','B类竞赛获奖数','获得一等奖项数','国赛获奖数']
+						},
+						grid:{
+								x:40,
+								y:40,
+								x2:20,
+								y2:20,
+							},
+						toolbox: {
+							feature: {
+								//saveAsImage: {}
+							}
+						},
+						xAxis: {
+							type: 'category',
+							boundaryGap: false,
+							axisLabel: {
+											/*inside: true,*/
+											interval:0,
+											textStyle: {
+												color: '#fff',
+												fontSize: 12
+
+											}
+										},
+										axisTick: {
+											show: false,
+										},
+										axisLine: {
+											show: true,
+											symbol:['none', 'arrow'],
+											symbolOffset: 12,
+											lineStyle:{
+												color: '#fff',
+											}
+										},
+							data:['一月','二月', '三月','四月','五月',"六月","七月","八月","九月","十月","十一月","十二月"]
+						},
+						yAxis: {
+							type: 'value',
+
+							axisLine: {
+								show: true,
+								symbol: ['none', 'arrow'],
+								symbolOffset: 12,
+								lineStyle:{
+									color: '#fff',
+								}
+							},
+							axisTick: {
+								show: false
+							},
+							axisLabel: {
+								textStyle: {
+									color: '#fff',
+									fontSize: 12
+								}
+							}
+						},
+						series: [
+							{
+								name: '获得奖项数',
+								type: 'line',
+								data: {{ every_month_all_num }},
+								itemStyle: {
+									 normal: {
+									   color: "#0efdff",//折线点的颜色
+									   lineStyle: {
+									   color: "#0efdff",//折线的颜色
+									   width:2,
+									  }
+									},
+								}
+							},
+							{
+								name: 'A类竞赛获奖数',
+								type: 'line',
+								data: {{ every_month_all_num_a }},
+                                itemStyle: {
+									 normal: {
+									   color: "#CE0000",//折线点的颜色
+									   lineStyle: {
+									   color: "#CE0000",//折线的颜色
+									   width:2,
+									  }
+									},
+								}
+							},
+                            {
+								name: 'B类竞赛获奖数',
+								type: 'line',
+								data: {{ every_month_all_num_b }},
+                                itemStyle: {
+									 normal: {
+									   color: "#f9f390",//折线点的颜色
+									   lineStyle: {
+									   color: "#f9f390",//折线的颜色
+									   width:2,
+									  }
+									},
+								}
+							},
+                            {
+								name: '获得一等奖项数',
+								type: 'line',
+								data: {{ every_month_all_num_first }},
+                                itemStyle: {
+									 normal: {
+									   color: "#F88CFBFF",//折线点的颜色
+									   lineStyle: {
+									   color: "#F88CFBFF",//折线的颜色
+									   width:2,
+									  }
+									},
+								}
+
+							},
+                            {
+								name: '国赛获奖数',
+								type: 'line',
+								data: {{ every_month_all_num_con }},
+                                itemStyle: {
+									 normal: {
+									   color: "#FFA500",//折线点的颜色
+									   lineStyle: {
+									   color: "#FFA500",//折线的颜色
+									   width:2,
+									  }
+									},
+								}
+							}
+						]
+					};
+								//获取dom容器
+								var myChart = echarts.init(document.getElementById('chartmain_zhe'));
+								// 使用刚指定的配置项和数据显示图表。
+								myChart.setOption(option);
+						//};
+					</script>
+{#                    <span class="border_bg_leftTop"></span>#}
+{#                    <span class="border_bg_rightTop"></span>#}
+{#                    <span class="border_bg_leftBottom"></span>#}
+                    <span class="border_bg_rightBottom"></span>
+                </div>
+            </div>
+        	<div class="leftMain_middle_right">
+            	<div class="leftMain_middle_rightIn">
+                	<h3></h3>
+                    <div class="biaoge biaoge_bi" style="width:100%; height:20vh">
+                    	<ul>
+                        	<li>
+                            	<div class="liIn">
+                                	<p class="shu shu1">{{ a_num }}</p>
+                                    <p class="zi">上学期全校共获A类奖项数</p>
+                                </div>
+                            </li>
+                        	<li>
+                            	<div class="liIn">
+                                	<p class="shu shu2">{{ b_con_num }}</p>
+                                    <p class="zi">上学期全校共获国家级B类奖项数</p>
+                                </div>
+                            </li>
+                        	<li>
+                            	<div class="liIn">
+                                	<p class="shu shu3">{{ c_con_num }}</p>
+                                    <p class="zi">上学期全校共获国家级C类奖项数</p>
+                                </div>
+                            </li>
+                        	<li>
+                            	<div class="liIn">
+                                	<p class="shu shu4">{{ all_con_num }}</p>
+                                    <p class="zi">上学期全校获得国家级奖项数</p>
+                                </div>
+                            </li>
+                        	<li>
+                            	<div class="liIn">
+                                	<p class="shu shu5">{{ all_num }}</p>
+                                    <p class="zi">上学期全校竞赛共获奖项数</p>
+                                </div>
+                            </li>
+                        	<li>
+                            	<div class="liIn">
+                                	<p class="shu shu6">{{ all_first_num }}</p>
+                                    <p class="zi">上学期各类竞赛获得一等奖项数</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+{#                    <span class="border_bg_leftTop"></span>#}
+{#                    <span class="border_bg_rightTop"></span>#}
+{#                    <span class="border_bg_leftBottom"></span>#}
+                    <span class="border_bg_rightBottom"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rightMain">
+        <div class="rightMain_top">
+            <div class="rightMain_topIn">
+                <h3>各学院竞赛获奖占比</h3>
+                <div class="biaoge" style="width:100%; height:35vh" id="chartmain_bing"></div>
+                <script type="text/javascript">
+					option = {
+						title: {
+							text: '数据情况统计',
+							subtext: '',
+							left: 'right',
+							textStyle: {
+								color: '#fff',
+								fontSize: 12
+							}
+						},
+						tooltip: {
+							trigger: 'item',
+							formatter: '{a} <br/>{b} : {c} ({d}%)'
+						},
+						legend: {
+							// orient: 'vertical',
+							// top: 'middle',
+							type: 'scroll',
+							orient: 'vertical',
+							right: 10,
+							top: 40,
+							bottom: 10,
+							left: 'right',
+							data: ["{{ all_college_name[0] }}","{{ all_college_name[1] }}","{{ all_college_name[2] }}",
+                                   "{{ all_college_name[3] }}","{{ all_college_name[4] }}","{{ all_college_name[5] }}",
+                                   "{{ all_college_name[6] }}","{{ all_college_name[7] }}","{{ all_college_name[8] }}",
+                                   "{{ all_college_name[9] }}","{{ all_college_name[10] }}","{{ all_college_name[11] }}",
+                                   "{{ all_college_name[12] }}","{{ all_college_name[13] }}","{{ all_college_name[14] }}",
+                                   "{{ all_college_name[15] }}","{{ all_college_name[16] }}","{{ all_college_name[17] }}",
+                                   "{{ all_college_name[18] }}","{{ all_college_name[19] }}","{{ all_college_name[20] }}"],
+							textStyle: {
+								color: '#fff',
+								fontSize: 15
+							}
+
+						},
+						grid:{
+							x:'-10%',
+							y:40,
+							x2:20,
+							y2:20,
+						},
+						color : [ 'rgb(251,29,9)', '#8c95fb', '#b3fe95',
+                                  '#f9eb90',  '#efb7fe', '#91f9dd',
+                                  '#0931fa','#f9c498','rgb(120,9,223)',
+                                  'rgb(98,251,9)', 'rgb(140,166,251)', 'rgb(200,254,149)',
+                                  '#fb0909', 'rgb(147,140,251)', 'rgba(149,254,254,0.7)',
+                                  '#60e542', '#f88cfb', '#95f8fe',
+                                  'rgba(9,208,251,0.72)', '#b88cfb', 'rgb(254,230,149)'],
+						series: [
+							{
+								type: 'pie',
+								radius: '50%',
+								center: ['45%', '50%'],
+								selectedMode: 'single',
+								data: [
+									{value: {{ all_college_num[0] }}, name: '{{ all_college_name[0] }}',
+                                    },
+									{value: {{ all_college_num[1] }}, name: '{{ all_college_name[1] }}'},
+                                    {value: {{ all_college_num[2] }}, name: '{{ all_college_name[2] }}'},
+									{value: {{ all_college_num[3] }}, name: '{{ all_college_name[3] }}'},
+                                    {value: {{ all_college_num[4] }}, name: '{{ all_college_name[4] }}'},
+									{value: {{ all_college_num[5] }}, name: '{{ all_college_name[5] }}'},
+                                    {value: {{ all_college_num[6] }}, name: '{{ all_college_name[6] }}'},
+                                    {value: {{ all_college_num[7] }}, name: '{{ all_college_name[7] }}'},
+                                    {value: {{ all_college_num[8] }}, name: '{{ all_college_name[8] }}'},
+									{value: {{ all_college_num[9] }}, name: '{{ all_college_name[9] }}'},
+                                    {value: {{ all_college_num[10] }}, name: '{{ all_college_name[10] }}'},
+									{value: {{ all_college_num[11] }}, name: '{{ all_college_name[11] }}'},
+                                    {value: {{ all_college_num[12] }}, name: '{{ all_college_name[12] }}'},
+									{value: {{ all_college_num[13] }}, name: '{{ all_college_name[13] }}'},
+                                    {value: {{ all_college_num[14] }}, name: '{{ all_college_name[14] }}'},
+                                    {value: {{ all_college_num[15] }}, name: '{{ all_college_name[15] }}'},
+                                    {value: {{ all_college_num[16] }}, name: '{{ all_college_name[16] }}'},
+                                    {value: {{ all_college_num[17] }}, name: '{{ all_college_name[17] }}'},
+									{value: {{ all_college_num[18] }}, name: '{{ all_college_name[18] }}'},
+                                    {value: {{ all_college_num[19] }}, name: '{{ all_college_name[19] }}'},
+                                    {value: {{ all_college_num[20] }}, name: '{{ all_college_name[20] }}'},
+								],
+								emphasis: {
+									itemStyle: {
+										shadowBlur: 10,
+										shadowOffsetX: 0,
+										shadowColor: 'rgba(0, 0, 0, 0.5)'
+									}
+								}
+							}
+						]
+					};
+                //获取dom容器
+								var myChart = echarts.init(document.getElementById('chartmain_bing'));
+								// 使用刚指定的配置项和数据显示图表。
+								myChart.setOption(option);
+
+                </script>
+{#                <span class="border_bg_leftTop"></span>#}
+{#                <span class="border_bg_rightTop"></span>#}
+{#                <span class="border_bg_leftBottom"></span>#}
+                <span class="border_bg_rightBottom"></span>
+            </div>
+         </div>
+        <div class="rightMain_bottom">
+            <div class="rightMain_bottomIn">
+                <h3>先进竞赛学院</h3>
+                <div class="biaoge biaoge_list" style="width:100%; height:46vh">
+                	<div class="biaoge_listIn">
+                    	<ul class="ul_title">
+                        	<li>学院名</li>
+                            <li>奖项数</li>
+                            <li>国赛奖项数</li>
+                            <li>一等奖项数</li>
+                            <li>A+B国赛</li>
+                        </ul>
+                        <div class="ul_list">
+                        	<div class="ul_listIn">
+                                <ul class="ul_con">
+                                    <li>{{ all_pio_college_name[0] }}</li>
+                                    <li>{{ all_pio_college_all[0] }}</li>
+                                    <li>{{ all_pio_college_con[0] }}</li>
+                                    <li>{{ all_pio_college_first[0] }}</li>
+                                    <li>{{ all_pio_college_up[0] }}</li>
+                                </ul>
+                                <ul class="ul_con">
+                                    <li>{{ all_pio_college_name[1] }}</li>
+                                    <li>{{ all_pio_college_all[1] }}</li>
+                                    <li>{{ all_pio_college_con[1] }}</li>
+                                    <li>{{ all_pio_college_first[1] }}</li>
+                                    <li>{{ all_pio_college_up[1] }}</li>
+                                </ul>
+                                <ul class="ul_con">
+                                    <li>{{ all_pio_college_name[2] }}</li>
+                                    <li>{{ all_pio_college_all[2] }}</li>
+                                    <li>{{ all_pio_college_con[2] }}</li>
+                                    <li>{{ all_pio_college_first[2] }}</li>
+                                    <li>{{ all_pio_college_up[2] }}</li>
+                                </ul>
+                                <ul class="ul_con">
+                                    <li>{{ all_pio_college_name[3] }}</li>
+                                    <li>{{ all_pio_college_all[3] }}</li>
+                                    <li>{{ all_pio_college_con[3] }}</li>
+                                    <li>{{ all_pio_college_first[3] }}</li>
+                                    <li>{{ all_pio_college_up[3] }}</li>
+                                </ul>
+                                <ul class="ul_con">
+                                    <li>{{ all_pio_college_name[4] }}</li>
+                                    <li>{{ all_pio_college_all[4] }}</li>
+                                    <li>{{ all_pio_college_con[4] }}</li>
+                                    <li>{{ all_pio_college_first[4] }}</li>
+                                    <li>{{ all_pio_college_up[4] }}</li>
+                                </ul>
+                                <ul class="ul_con">
+                                    <li>{{ all_pio_college_name[5] }}</li>
+                                    <li>{{ all_pio_college_all[5] }}</li>
+                                    <li>{{ all_pio_college_con[5] }}</li>
+                                    <li>{{ all_pio_college_first[5] }}</li>
+                                    <li>{{ all_pio_college_up[5] }}</li>
+                                </ul>
+                                 <ul class="ul_con">
+                                     <li>{{ all_pio_college_name[6] }}</li>
+                                    <li>{{ all_pio_college_all[6] }}</li>
+                                    <li>{{ all_pio_college_con[6] }}</li>
+                                    <li>{{ all_pio_college_first[6] }}</li>
+                                    <li>{{ all_pio_college_up[6] }}</li>
+                                </ul>
+                                <ul class="ul_con">
+                                     <li>{{ all_pio_college_name[7] }}</li>
+                                    <li>{{ all_pio_college_all[7] }}</li>
+                                    <li>{{ all_pio_college_con[7] }}</li>
+                                    <li>{{ all_pio_college_first[7] }}</li>
+                                    <li>{{ all_pio_college_up[7] }}</li>
+                                </ul>
+                                <ul class="ul_con">
+                                     <li>{{ all_pio_college_name[8] }}</li>
+                                    <li>{{ all_pio_college_all[8] }}</li>
+                                    <li>{{ all_pio_college_con[8] }}</li>
+                                    <li>{{ all_pio_college_first[8] }}</li>
+                                    <li>{{ all_pio_college_up[8] }}</li>
+                                </ul>
+                                 <ul class="ul_con">
+                                     <li>{{ all_pio_college_name[9] }}</li>
+                                    <li>{{ all_pio_college_all[9] }}</li>
+                                    <li>{{ all_pio_college_con[9] }}</li>
+                                    <li>{{ all_pio_college_first[9] }}</li>
+                                    <li>{{ all_pio_college_up[9] }}</li>
+                                </ul>
+                                 <ul class="ul_con">
+                                     <li>{{ all_pio_college_name[10] }}</li>
+                                    <li>{{ all_pio_college_all[10] }}</li>
+                                    <li>{{ all_pio_college_con[10] }}</li>
+                                    <li>{{ all_pio_college_first[10] }}</li>
+                                    <li>{{ all_pio_college_up[10] }}</li>
+                                </ul>
+                                 <ul class="ul_con">
+                                     <li>{{ all_pio_college_name[11] }}</li>
+                                    <li>{{ all_pio_college_all[11] }}</li>
+                                    <li>{{ all_pio_college_con[11] }}</li>
+                                    <li>{{ all_pio_college_first[11] }}</li>
+                                    <li>{{ all_pio_college_up[11] }}</li>
+                                </ul>
+                                <ul class="ul_con">
+                                     <li>{{ all_pio_college_name[12] }}</li>
+                                    <li>{{ all_pio_college_all[12] }}</li>
+                                    <li>{{ all_pio_college_con[12] }}</li>
+                                    <li>{{ all_pio_college_first[12] }}</li>
+                                    <li>{{ all_pio_college_up[12] }}</li>
+                                </ul>
+                            </div>
+                       </div>
+                   </div>
+
+                </div>
+{#                <span class="border_bg_leftTop"></span>#}
+{#                <span class="border_bg_rightTop"></span>#}
+{#                <span class="border_bg_leftBottom"></span>#}
+                <span class="border_bg_rightBottom"></span>
+            </div>
+         </div>
+    </div>
+          <ul >
+     <li>
+         <a href="http://127.0.0.1:5000/fourth_school" class="color">切换主题 </a>
+         <a href="http://127.0.0.1:5000/third" class="color">进入学院汇赛 </a>
+         <a href="http://127.0.0.1:5000/show_school" class="color">生成分析报告 </a>
+     </li>
+   </ul>
+    <div style="clear:both;"></div>
+</div>
+<!--数字增长累加动画-->
+<script src="../../static/js/static/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script src="../../static/js/static/jquery.numscroll.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(".shu1").numScroll();
+	$(".shu2").numScroll();
+	$(".shu3").numScroll();
+	$(".shu4").numScroll();
+	$(".shu5").numScroll();
+	$(".shu6").numScroll();
+
+	/*$(".num2").numScroll({
+		time:5000
+	});*/
+</script>
+
+</body>
+</html>

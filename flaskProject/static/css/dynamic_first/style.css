@@ -1,0 +1,16 @@
+html, body {
+  background: black;
+}
+.nav_,
+.slider {
+  position: relative;
+  z-index: 1;
+  /*background: #1e1f26;*/
+  /*text-align: center;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 120vh;
+  padding: 0 2em;
+}
